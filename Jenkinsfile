@@ -5,6 +5,7 @@ pipeline {
             }
         }
         environment { 
+            GREETING = 'Hello Jenkins'
             packageVersion = ''
         }
         options {
