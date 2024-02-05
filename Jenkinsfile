@@ -45,6 +45,8 @@ pipeline {
             steps {
                 sh """
                     ls -la
+                    zip -r catlogue.zip ./* -x ".git"
+                    ls -ltr
                 """
             }
         }
@@ -62,6 +64,7 @@ pipeline {
     post { 
         always {
             echo 'I will alwasy say hello!'
+            deleteDir()
         }
         failure {
             echo 'this is run when pipelines failed, used generallt to send some alerts'
