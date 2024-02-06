@@ -7,6 +7,7 @@ pipeline {
         environment { 
             GREETING = 'Hello Jenkins'
             packageVersion = ''
+            nexusURL = '172.31.10.3:8081'
         }
         options {
             timeout(time: 1, unit: 'HOURS')
@@ -55,7 +56,7 @@ pipeline {
                    nexusArtifactUploader(
                     nexusVersion: 'nexus3',
                     protocol: 'http',
-                    nexusUrl: "${nexusURL}",
+                    nexusURL: "${nexusURL}",
                     groupId: 'com.roboshop',
                     version: "${packageVersion}",
                     repository: 'catalogue',
